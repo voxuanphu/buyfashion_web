@@ -1,28 +1,112 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BuyFashionAI</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BuyFashionAI</title>
+  <meta name="description" content="BuyFashionAI - Website gợi ý sản phẩm thời trang đáng mua, dễ tìm kiếm, dễ chọn mua." />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <header class="hero">
+    <div class="container">
+      <div class="top-badge">BUYFASHIONAI</div>
+      <h1>Mua thời trang dễ hơn với BuyFashionAI</h1>
+      <p class="hero-text">
+        Gợi ý sản phẩm đẹp, giá hợp lý, dễ so sánh và bấm sang nơi bán ngay.
+      </p>
 
-<header class="header">
-<h1>BuyFashionAI</h1>
-<p>Gợi ý sản phẩm thời trang đáng mua</p>
-</header>
+      <div class="search-box">
+        <input id="searchInput" type="text" placeholder="Tìm áo thun, oversize, basic, thể thao..." />
+      </div>
 
-<div class="container">
+      <div class="filter-row">
+        <button class="filter-btn active" data-filter="all">Tất cả</button>
+        <button class="filter-btn" data-filter="basic">Basic</button>
+        <button class="filter-btn" data-filter="oversize">Oversize</button>
+        <button class="filter-btn" data-filter="sport">Thể thao</button>
+      </div>
+    </div>
+  </header>
 
-<input id="searchInput" placeholder="Tìm áo thun nam...">
+  <main class="container">
+    <section class="info-grid">
+      <div class="info-card">
+        <h3>Dễ tìm</h3>
+        <p>Tìm sản phẩm theo tên, phong cách hoặc shop.</p>
+      </div>
+      <div class="info-card">
+        <h3>Dễ chọn</h3>
+        <p>Hiển thị giá, shop, tag sản phẩm rõ ràng.</p>
+      </div>
+      <div class="info-card">
+        <h3>Dễ mua</h3>
+        <p>Bấm một chạm để chuyển sang trang bán hàng.</p>
+      </div>
+    </section>
 
-<div id="products" class="products"></div>
+    <section class="section-head">
+      <div>
+        <h2>Sản phẩm nổi bật</h2>
+        <p>Danh sách gợi ý cho nam giới, dễ mặc và dễ mua.</p>
+      </div>
+      <div class="count-box">
+        <span id="resultCount">0</span> sản phẩm
+      </div>
+    </section>
 
-</div>
+    <section id="products" class="products"></section>
 
-<script src="script.js"></script>
+    <section class="review-section">
+      <h2>Bài viết gợi ý</h2>
+      <div class="review-grid">
+        <article class="review-card">
+          <h3>Áo thun nam dưới 200k nên chọn thế nào?</h3>
+          <p>Ưu tiên cotton mềm, form dễ mặc và shop có ảnh thật rõ ràng.</p>
+        </article>
+        <article class="review-card">
+          <h3>Oversize mặc sao cho đẹp?</h3>
+          <p>Nên chọn vai rơi vừa phải, không quá dài, dễ phối với quần jean hoặc kaki.</p>
+        </article>
+        <article class="review-card">
+          <h3>Áo thun thể thao cần chú ý gì?</h3>
+          <p>Ưu tiên chất vải thoáng, co giãn tốt và phù hợp hoạt động nhiều.</p>
+        </article>
+      </div>
+    </section>
 
+    <section class="faq-section">
+      <h2>Câu hỏi thường gặp</h2>
+      <div class="faq-item">
+        <h3>Website này bán hàng trực tiếp không?</h3>
+        <p>Không. BuyFashionAI là website gợi ý và điều hướng sang nơi bán.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Tôi có thể tìm kiếm sản phẩm không?</h3>
+        <p>Có. Bạn có thể tìm theo tên sản phẩm, phong cách hoặc shop.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Website có thể nâng cấp thêm không?</h3>
+        <p>Có. Có thể thêm 50–500 sản phẩm, bài review, lọc giá và link affiliate.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>BuyFashionAI</strong>
+        <p>Website thời trang AI - gợi ý sản phẩm đáng mua.</p>
+      </div>
+      <div class="footer-links">
+        <span>Áo thun</span>
+        <span>Review</span>
+        <span>So sánh</span>
+        <span>Gợi ý mua</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
