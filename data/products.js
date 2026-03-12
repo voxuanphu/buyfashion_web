@@ -45,9 +45,7 @@ const products = [
     shop: "Shopee",
     badge: "Phổ biến",
     link: "https://shopee.vn/",
-    image: assets/products
-/images (2).jpg
-
+    image: svgPlaceholder("Áo polo", "#1d4ed8", "#0f172a")
   },
   {
     id: 3,
