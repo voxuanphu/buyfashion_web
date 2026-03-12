@@ -1,1 +1,39 @@
+ <!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog - BuyFashionAI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="wrap">
+    <h1>Blog BuyFashionAI</h1>
+    <nav>
+      <a href="index.html">Trang chủ</a>
+      <a href="products.html">Sản phẩm</a>
+      <a href="blog.html">Blog</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="stylist.html">AI Stylist</a>
+    </nav>
+  </header>
 
+  <main class="wrap">
+    <div id="blog-list"></div>
+  </main>
+
+  <script>
+    fetch("blog.json")
+      .then(r => r.json())
+      .then(items => {
+        const el = document.getElementById("blog-list");
+        el.innerHTML = items.map(x => `
+          <article class="card">
+            <h2>${x.title}</h2>
+            <p>${x.content.replace(/\n/g, "<br>")}</p>
+          </article>
+        `).join("");
+      });
+  </script>
+</body>
+</html>
