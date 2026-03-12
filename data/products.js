@@ -45,7 +45,9 @@ const products = [
     shop: "Shopee",
     badge: "Phổ biến",
     link: "https://shopee.vn/",
-    image: svgPlaceholder("Form rộng", "#374151", "#0f172a")
+    image: assets/products
+/images (2).jpg
+
   },
   {
     id: 3,
