@@ -1,20 +1,28 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+ from fastapi import FastAPI
+from sqlalchemy.orm import Session
+from backend.database import engine, SessionLocal
+from backend.models import Base, Product
 
-app = FastAPI(title="BuyFashionAI API")
+app = FastAPI()
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+Base.metadata.create_all(bind=engine)
 
-@app.get("/")
-def home():
-    return {"message": "BuyFashionAI backend running"}
+@app.get("/products")
+def get_products():
 
-@app.get("/health")
-def health():
-    return {"status": "ok"}
+    db: Session = SessionLocal()
+
+    products = db.query(Product).all()
+
+    return [
+        {
+            "title": p.title,
+            "price": p.price,
+            "image": p.image,
+            "shop": p.shop,
+            "rating": p.rating,
+            "affiliate_url": p.affiliate_url,
+            "review": p.review
+        }
+        for p in products
+    ]
