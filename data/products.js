@@ -30,7 +30,7 @@ const products = [
     discount: 24,
     shop: "Shopee Mall",
     badge: "Bán chạy",
-    link: "https://shopee.vn/",
+    link: "https://s.shopee.vn/9zswiBvchR",
     image: svgPlaceholder("Áo thun basic", "#1f2937", "#111827")
   },
   {
