@@ -1,4 +1,4 @@
- fetch("products.json")
+ fetch("http://127.0.0.1:800/products")
   .then(r => r.json())
   .then(items => {
     const el = document.getElementById("product-list");
