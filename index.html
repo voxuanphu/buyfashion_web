@@ -1,287 +1,1123 @@
- <!DOCTYPE html>
+ <!doctype html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BuyFashionAI | Gợi ý thời trang thông minh</title>
-  <meta
-    name="description"
-    content="BuyFashionAI - Website gợi ý thời trang nam với giao diện hiện đại, tìm kiếm nhanh, lọc giá, sắp xếp sản phẩm và nút mua ngay."
-  />
+  <title>BuyFashionAI - Review thời trang, chọn đồ đáng mua</title>
+  <meta name="description" content="BuyFashionAI là website review và gợi ý thời trang theo nhu cầu thật: giá hợp lý, shop uy tín, ảnh thật, link mua nhanh tới Shopee, Lazada, Tiki." />
+  <meta name="keywords" content="BuyFashionAI, review thời trang, affiliate shopee, affiliate lazada, affiliate tiki, áo thun nam, váy nữ, giày trắng" />
   <meta name="theme-color" content="#111111" />
-  <link rel="stylesheet" href="style.css" />
+  <meta property="og:title" content="BuyFashionAI" />
+  <meta property="og:description" content="Review thời trang thông minh, chọn nhanh sản phẩm đáng mua." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #171a21;
+      --card: #1d212b;
+      --soft: #252b38;
+      --text: #eef2f7;
+      --muted: #aab4c3;
+      --line: rgba(255,255,255,0.08);
+      --brand: #f5c76a;
+      --brand-2: #ffd98f;
+      --danger: #ff7878;
+      --ok: #8fd694;
+      --shadow: 0 20px 50px rgba(0,0,0,0.22);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --max: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(245, 199, 106, 0.08), transparent 28%),
+        linear-gradient(180deg, #0b0d12, #10131a 28%, #0e1016 100%);
+      color: var(--text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(10, 12, 17, 0.7);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 72px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--brand), #f0a84e);
+      color: #121212;
+      font-size: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      padding: 72px 0 36px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-card, .hero-side {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 38px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 199, 106, 0.14);
+      color: var(--brand-2);
+      border: 1px solid rgba(245, 199, 106, 0.18);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1.04;
+      margin: 18px 0 14px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
+
+    .btn {
+      border: 0;
+      outline: none;
+      border-radius: 14px;
+      padding: 14px 18px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .2s ease, opacity .2s ease, box-shadow .2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand), #f0b45b);
+      color: #181818;
+      box-shadow: 0 12px 28px rgba(245,199,106,0.18);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .hero-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .mini-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .mini-card strong { display: block; font-size: 22px; margin-bottom: 6px; }
+    .mini-card span { color: var(--muted); font-size: 14px; }
+
+    .hero-side {
+      padding: 22px;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .side-block {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 18px;
+    }
+
+    .side-title {
+      margin: 0 0 12px;
+      font-size: 17px;
+    }
+
+    .check-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .check-list b { color: var(--text); }
+
+    .section {
+      padding: 28px 0 8px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .section h2 {
+      font-size: clamp(26px, 3vw, 38px);
+      margin: 0;
+      letter-spacing: -0.03em;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      max-width: 760px;
+      line-height: 1.7;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(4, minmax(120px, 1fr));
+      gap: 12px;
+      margin: 16px 0 18px;
+    }
+
+    .field {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 14px;
+      color: var(--text);
+      width: 100%;
+      min-height: 50px;
+    }
+
+    .field::placeholder { color: #8893a5; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .product-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .product-media {
+      aspect-ratio: 1 / 1;
+      background: #0e1014;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .product-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+
+    .product-card:hover .product-media img { transform: scale(1.04); }
+
+    .source-pill, .score-pill {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(10,12,17,0.82);
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      backdrop-filter: blur(8px);
+    }
+
+    .score-pill {
+      left: auto;
+      right: 12px;
+      color: var(--brand-2);
+    }
+
+    .product-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .product-title {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.45;
+      min-height: 48px;
+    }
+
+    .meta-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .old-price {
+      color: #7f8ba0;
+      text-decoration: line-through;
+      font-size: 14px;
+      margin-top: 2px;
+    }
+
+    .shop {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .rating-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .stars { color: var(--brand); font-weight: 800; }
+
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .btn-buy {
+      width: 100%;
+      background: linear-gradient(135deg, var(--brand), #f0b45b);
+      color: #121212;
+      padding: 14px 16px;
+      border-radius: 14px;
+      font-weight: 900;
+    }
+
+    .btn-outline {
+      width: 100%;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
+      padding: 13px 16px;
+      border-radius: 14px;
+      font-weight: 800;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .review-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .review-card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.4;
+    }
+
+    .review-card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .review-points {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .review-points span { color: var(--text); font-weight: 700; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 16px;
+    }
+
+    .step {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 20px;
+    }
+
+    .step-index {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(245,199,106,0.14);
+      color: var(--brand-2);
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .step h3 { margin: 0 0 8px; }
+    .step p { margin: 0; color: var(--muted); line-height: 1.7; }
+
+    .cta {
+      margin: 40px 0 12px;
+      padding: 32px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(245,199,106,0.12), rgba(255,255,255,0.04));
+      border: 1px solid rgba(245,199,106,0.18);
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .cta h2 { margin: 0 0 8px; }
+    .cta p { margin: 0; color: var(--muted); max-width: 760px; line-height: 1.7; }
+
+    .footer {
+      padding: 42px 0 64px;
+      color: var(--muted);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 24px;
+      border-top: 1px solid var(--line);
+      padding-top: 28px;
+    }
+
+    .footer h4 { color: var(--text); margin: 0 0 12px; }
+    .footer p, .footer li {
+      margin: 0;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .empty {
+      display: none;
+      background: rgba(255,255,255,0.03);
+      border: 1px dashed var(--line);
+      border-radius: 22px;
+      padding: 26px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid, .footer-grid { grid-template-columns: 1fr; }
+      .card-grid { grid-template-columns: repeat(3, 1fr); }
+      .review-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .toolbar { grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    @media (max-width: 760px) {
+      .nav-inner { align-items: flex-start; padding: 12px 0; }
+      .nav-links { gap: 12px; }
+      .hero { padding-top: 36px; }
+      .hero-card { padding: 24px; }
+      .hero-mini-grid { grid-template-columns: 1fr; }
+      .card-grid, .review-grid, .steps, .toolbar { grid-template-columns: 1fr; }
+      .cta { padding: 24px; }
+      h1 { font-size: 36px; }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#" class="brand">
-        <span class="brand-badge">B</span>
-        <div class="brand-text">
-          <strong>BuyFashionAI</strong>
-          <small>Thời trang nam chọn lọc</small>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="#top" aria-label="BuyFashionAI home">
+        <div class="logo-mark">B</div>
+        <div>
+          <div>BuyFashionAI</div>
+          <div style="font-size:12px;color:var(--muted);font-weight:600;">Review thời trang • Affiliate smart</div>
         </div>
       </a>
-
-      <nav class="desktop-nav">
-        <a href="#products-section">Sản phẩm</a>
-        <a href="#reviews-section">Review</a>
-        <a href="#why-section">Lý do chọn</a>
-      </nav>
-
-      <button id="mobileMenuBtn" class="menu-btn" aria-label="Mở menu">
-        ☰
-      </button>
+      <div class="nav-links">
+        <a href="#products">Sản phẩm</a>
+        <a href="#reviews">Bài review</a>
+        <a href="#how">Cách hoạt động</a>
+        <a href="#about">Giới thiệu</a>
+      </div>
     </div>
+  </nav>
 
-    <div id="mobileMenu" class="mobile-menu">
-      <a href="#products-section">Sản phẩm</a>
-      <a href="#reviews-section">Review</a>
-      <a href="#why-section">Lý do chọn</a>
-    </div>
-  </header>
-
-  <main>
+  <main id="top">
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-content">
-          <span class="tag">Demo hoàn chỉnh cho repo GitHub</span>
-          <h1>Giao diện đẹp, đầy đủ chức năng, sẵn sàng nâng cấp thành web affiliate</h1>
+        <div class="hero-card">
+          <div class="badge">✨ Chọn lọc theo nhu cầu thật, không đăng tràn lan</div>
+          <h1>Mua đồ thời trang dễ hơn với <span style="color:var(--brand)">BuyFashionAI</span></h1>
           <p>
-            Tìm kiếm nhanh, lọc theo danh mục, lọc giá, sắp xếp thông minh, xem review nổi bật
-            và bấm <strong>Mua ngay</strong> để chuyển sang sàn thương mại điện tử.
+            Website affiliate chuẩn kiếm tiền: lọc sản phẩm đáng mua, ghi rõ mức giá, nguồn sàn, đánh giá shop,
+            và dẫn người dùng thẳng đến trang mua hàng qua link affiliate Shopee, Lazada hoặc Tiki.
           </p>
-
           <div class="hero-actions">
-            <a href="#products-section" class="btn btn-primary">Xem sản phẩm</a>
-            <a href="#reviews-section" class="btn btn-secondary">Đọc review</a>
+            <a class="btn btn-primary" href="#products">Xem sản phẩm nổi bật</a>
+            <a class="btn btn-secondary" href="#reviews">Đọc bài review</a>
           </div>
-
-          <div class="hero-stats">
-            <div class="stat-card">
-              <strong id="heroProductCount">0+</strong>
-              <span>Sản phẩm</span>
+          <div class="hero-mini-grid">
+            <div class="mini-card">
+              <strong id="statProducts">12</strong>
+              <span>Sản phẩm demo sẵn để thay bằng link affiliate thật</span>
             </div>
-            <div class="stat-card">
-              <strong>4.8/5</strong>
-              <span>Đánh giá mẫu</span>
+            <div class="mini-card">
+              <strong>6</strong>
+              <span>Bài review mẫu nhắm đúng nhu cầu mua hàng</span>
             </div>
-            <div class="stat-card">
-              <strong>24/7</strong>
-              <span>Tra cứu nhanh</span>
+            <div class="mini-card">
+              <strong>3 sàn</strong>
+              <span>Hỗ trợ Shopee, Lazada, Tiki ngay từ đầu</span>
             </div>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="glass-card">
-            <div class="glass-top">
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-            </div>
-
-            <div class="glass-body">
-              <div class="mini-product">
-                <div class="mini-image mini1"></div>
-                <div>
-                  <strong>Áo thun premium</strong>
-                  <p>Phối đơn giản, dễ mặc, đẹp hằng ngày</p>
-                </div>
-              </div>
-              <div class="mini-product">
-                <div class="mini-image mini2"></div>
-                <div>
-                  <strong>Sơ mi công sở</strong>
-                  <p>Gọn gàng, lịch sự, phù hợp đi làm</p>
-                </div>
-              </div>
-              <div class="mini-product">
-                <div class="mini-image mini3"></div>
-                <div>
-                  <strong>Polo nam basic</strong>
-                  <p>Thanh lịch hơn áo thun, vẫn rất thoải mái</p>
-                </div>
-              </div>
+            <div class="mini-card">
+              <strong>SEO ready</strong>
+              <span>Meta title, description, cấu trúc rõ để lên GitHub Pages</span>
             </div>
           </div>
         </div>
+
+        <aside class="hero-side">
+          <div class="side-block">
+            <h3 class="side-title">Bản này đã có sẵn</h3>
+            <ul class="check-list">
+              <li><span>✔</span><div><b>Trang chủ đẹp, tối giản</b><br/>Phù hợp làm website review thời trang chuyên nghiệp.</div></li>
+              <li><span>✔</span><div><b>Tìm kiếm + lọc sản phẩm</b><br/>Lọc theo sàn, danh mục, khoảng giá và từ khóa.</div></li>
+              <li><span>✔</span><div><b>Nút Mua ngay</b><br/>Mỗi thẻ sản phẩm có chỗ gắn link affiliate riêng.</div></li>
+              <li><span>✔</span><div><b>Khu review chuẩn SEO</b><br/>Có tiêu đề, mô tả, luận điểm chính và CTA mua hàng.</div></li>
+            </ul>
+          </div>
+          <div class="side-block">
+            <h3 class="side-title">Bạn chỉ cần thay 3 thứ</h3>
+            <ul class="check-list">
+              <li><span>1.</span><div>Ảnh sản phẩm thật</div></li>
+              <li><span>2.</span><div>Giá + shop thật</div></li>
+              <li><span>3.</span><div>Link affiliate Shopee/Lazada/Tiki</div></li>
+            </ul>
+            <div class="note">Mẫu demo đang dùng dữ liệu mẫu để bạn triển khai nhanh trên GitHub/Netlify trước, sau đó thay dần bằng dữ liệu thật.</div>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <section class="trust-bar">
-      <div class="container trust-grid">
-        <div>Chọn lọc dễ mua</div>
-        <div>Giao diện tối giản</div>
-        <div>Lọc giá nhanh</div>
-        <div>Sẵn sàng gắn affiliate</div>
-      </div>
-    </section>
-
-    <section id="products-section" class="products-section">
+    <section class="section" id="products">
       <div class="container">
         <div class="section-head">
           <div>
-            <span class="section-kicker">Sản phẩm nổi bật</span>
-            <h2>Khám phá sản phẩm phù hợp</h2>
-            <p>Lọc nhanh theo nhu cầu, mức giá và kiểu dáng.</p>
-          </div>
-          <div class="result-box">
-            <strong id="resultCount">0</strong>
-            <span>sản phẩm hiển thị</span>
+            <h2>Sản phẩm nổi bật</h2>
+            <div class="section-sub">Danh sách này đang là dữ liệu mẫu. Bạn có thể thay bằng sản phẩm thật từ Shopee, Lazada, Tiki và dán link affiliate vào nút mua ngay.</div>
           </div>
         </div>
 
-        <div class="filter-panel">
-          <div class="filter-grid">
-            <div class="filter-item filter-search">
-              <label for="searchInput">Tìm kiếm</label>
-              <input
-                id="searchInput"
-                type="text"
-                placeholder="Ví dụ: áo thun, polo, sơ mi..."
-              />
-            </div>
-
-            <div class="filter-item">
-              <label for="categoryFilter">Danh mục</label>
-              <select id="categoryFilter">
-                <option value="all">Tất cả</option>
-                <option value="Áo thun">Áo thun</option>
-                <option value="Áo polo">Áo polo</option>
-                <option value="Áo sơ mi">Áo sơ mi</option>
-                <option value="Hoodie">Hoodie</option>
-                <option value="Áo khoác">Áo khoác</option>
-              </select>
-            </div>
-
-            <div class="filter-item">
-              <label for="priceFilter">Mức giá</label>
-              <select id="priceFilter">
-                <option value="all">Tất cả</option>
-                <option value="150000">Dưới 150.000đ</option>
-                <option value="200000">Dưới 200.000đ</option>
-                <option value="300000">Dưới 300.000đ</option>
-                <option value="500000">Dưới 500.000đ</option>
-              </select>
-            </div>
-
-            <div class="filter-item">
-              <label for="sortFilter">Sắp xếp</label>
-              <select id="sortFilter">
-                <option value="featured">Nổi bật</option>
-                <option value="price-asc">Giá tăng dần</option>
-                <option value="price-desc">Giá giảm dần</option>
-                <option value="rating-desc">Đánh giá cao</option>
-                <option value="discount-desc">Giảm giá mạnh</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="filter-actions">
-            <button id="clearFiltersBtn" class="btn btn-light">Xóa bộ lọc</button>
-          </div>
+        <div class="toolbar">
+          <input class="field" id="searchInput" type="text" placeholder="Tìm sản phẩm, ví dụ: áo thun nam, váy đi tiệc, giày trắng..." />
+          <select class="field" id="sourceFilter">
+            <option value="all">Tất cả sàn</option>
+            <option value="Shopee">Shopee</option>
+            <option value="Lazada">Lazada</option>
+            <option value="Tiki">Tiki</option>
+          </select>
+          <select class="field" id="categoryFilter">
+            <option value="all">Tất cả danh mục</option>
+            <option value="Áo nam">Áo nam</option>
+            <option value="Váy nữ">Váy nữ</option>
+            <option value="Giày">Giày</option>
+            <option value="Quần">Quần</option>
+          </select>
+          <select class="field" id="priceFilter">
+            <option value="all">Mọi mức giá</option>
+            <option value="under200">Dưới 200k</option>
+            <option value="200to400">200k - 400k</option>
+            <option value="over400">Trên 400k</option>
+          </select>
+          <select class="field" id="sortFilter">
+            <option value="score">Ưu tiên điểm gợi ý</option>
+            <option value="priceAsc">Giá thấp đến cao</option>
+            <option value="priceDesc">Giá cao đến thấp</option>
+            <option value="rating">Ưu tiên đánh giá</option>
+          </select>
         </div>
 
-        <div id="activeTags" class="active-tags"></div>
-
-        <div id="productsGrid" class="products-grid"></div>
-
-        <div id="emptyState" class="empty-state hidden">
-          <h3>Không tìm thấy sản phẩm phù hợp</h3>
-          <p>Hãy thử từ khóa khác hoặc xóa bớt bộ lọc.</p>
-        </div>
+        <div class="card-grid" id="productGrid"></div>
+        <div class="empty" id="emptyState">Không tìm thấy sản phẩm phù hợp. Hãy đổi bộ lọc hoặc từ khóa.</div>
+        <div class="note">Gợi ý: Khi thay dữ liệu thật, hãy giữ tiêu đề rõ nhu cầu, ví dụ “Áo thun nam form rộng dưới 250k”, “Giày trắng dễ phối đồ”, “Váy đi tiệc giá hợp lý”. Đây là cách tốt để làm SEO và tăng tỉ lệ bấm mua.</div>
       </div>
     </section>
 
-    <section id="reviews-section" class="reviews-section">
+    <section class="section" id="reviews">
       <div class="container">
         <div class="section-head">
           <div>
-            <span class="section-kicker">Review hữu ích</span>
-            <h2>Gợi ý theo nhu cầu thực tế</h2>
-            <p>Phần này giúp web của bạn nhìn chuyên nghiệp hơn và có định hướng nội dung rõ ràng.</p>
+            <h2>Bài review mẫu</h2>
+            <div class="section-sub">Các bài này giúp website không chỉ là nơi đặt link, mà còn là nơi tư vấn thật. Đây là phần rất quan trọng nếu bạn muốn kiếm tiền affiliate bền vững.</div>
           </div>
         </div>
-
-        <div class="review-grid">
-          <article class="review-card">
-            <span class="review-badge">Dưới 200k</span>
-            <h3>Áo thun nam đẹp giá dễ mua</h3>
-            <p>
-              Nếu ưu tiên mặc hằng ngày, nên chọn áo cotton basic, form vừa và màu trung tính.
-              Đây là nhóm dễ bán, dễ phối đồ và phù hợp số đông khách hàng.
-            </p>
-          </article>
-
-          <article class="review-card">
-            <span class="review-badge">Công sở</span>
-            <h3>Sơ mi nam lịch sự, nhìn gọn gàng</h3>
-            <p>
-              Với nhu cầu đi làm, nên ưu tiên chất vải ít nhăn, form đứng và màu trắng, xanh nhạt
-              hoặc be. Đây là nhóm sản phẩm có tỷ lệ chuyển đổi khá tốt.
-            </p>
-          </article>
-
-          <article class="review-card">
-            <span class="review-badge">Dễ phối</span>
-            <h3>Polo nam cho người thích đơn giản</h3>
-            <p>
-              Polo là lựa chọn cân bằng giữa lịch sự và thoải mái. Dễ mặc hơn sơ mi, đẹp hơn áo
-              thun cơ bản trong nhiều hoàn cảnh.
-            </p>
-          </article>
-        </div>
+        <div class="review-grid" id="reviewGrid"></div>
       </div>
     </section>
 
-    <section id="why-section" class="why-section">
+    <section class="section" id="how">
       <div class="container">
         <div class="section-head">
           <div>
-            <span class="section-kicker">Tại sao web này ổn</span>
-            <h2>Phù hợp để làm nền tảng phát triển tiếp</h2>
+            <h2>Cách website này kiếm tiền</h2>
+            <div class="section-sub">Mô hình đúng cho BuyFashionAI là chọn lọc ít nhưng chất lượng, có nhận định rõ ràng và dẫn người xem sang sàn mua hàng qua affiliate link.</div>
+          </div>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-index">1</div>
+            <h3>Chọn sản phẩm</h3>
+            <p>Bạn chọn sản phẩm thật có ảnh rõ, giá hợp lý, shop uy tín và tỷ lệ đánh giá tốt.</p>
+          </div>
+          <div class="step">
+            <div class="step-index">2</div>
+            <h3>Gắn link affiliate</h3>
+            <p>Lấy link từ Shopee Affiliate, Lazada Affiliate hoặc Tiki Affiliate rồi dán vào từng nút mua.</p>
+          </div>
+          <div class="step">
+            <div class="step-index">3</div>
+            <h3>Viết review có ích</h3>
+            <p>Mỗi bài nên nhắm một nhu cầu rõ: dưới 300k, mặc đi làm, đi chơi, form rộng, dễ phối đồ.</p>
+          </div>
+          <div class="step">
+            <div class="step-index">4</div>
+            <h3>Tối ưu SEO + chuyển đổi</h3>
+            <p>Đặt tiêu đề dễ tìm trên Google, ảnh đẹp, CTA rõ và nội dung thật để tăng tỷ lệ mua.</p>
           </div>
         </div>
 
-        <div class="why-grid">
-          <div class="why-card">
-            <h3>Thiết kế sạch</h3>
-            <p>Dễ nhìn, dễ sửa, dễ thêm sản phẩm và phù hợp làm giao diện bán hàng cơ bản.</p>
+        <div class="cta">
+          <div>
+            <h2>Sẵn sàng thay bằng dữ liệu thật</h2>
+            <p>Bạn có thể dùng bản này làm nền chính thức cho BuyFashionAI, rồi thay dần ảnh, giá và affiliate link thật theo từng sản phẩm.</p>
           </div>
-          <div class="why-card">
-            <h3>Code đơn giản</h3>
-            <p>Chỉ dùng HTML, CSS, JavaScript thuần nên upload GitHub rất dễ.</p>
-          </div>
-          <div class="why-card">
-            <h3>Dễ mở rộng</h3>
-            <p>Sau này có thể thêm affiliate, JSON thật, API, tìm kiếm nâng cao, trang chi tiết.</p>
-          </div>
-          <div class="why-card">
-            <h3>Deploy nhanh</h3>
-            <p>Dùng tốt với GitHub Pages hoặc Netlify mà không cần cài đặt phức tạp.</p>
-          </div>
+          <a href="#products" class="btn btn-primary">Bắt đầu chỉnh sản phẩm</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
+  <footer class="footer" id="about">
+    <div class="container footer-grid">
       <div>
-        <strong>BuyFashionAI</strong>
-        <p>Demo giao diện hoàn chỉnh cho repo GitHub của bạn.</p>
+        <h4>BuyFashionAI</h4>
+        <p>Website review và chọn lọc thời trang theo nhu cầu thật. Mục tiêu là giúp người mua tìm được món đồ phù hợp nhanh hơn, đồng thời tạo doanh thu affiliate bền vững.</p>
       </div>
-      <div class="footer-links">
-        <a href="#products-section">Sản phẩm</a>
-        <a href="#reviews-section">Review</a>
-        <a href="#top">Lên đầu trang</a>
+      <div>
+        <h4>Danh mục chính</h4>
+        <ul>
+          <li>Áo thun nam</li>
+          <li>Váy nữ</li>
+          <li>Giày trắng</li>
+          <li>Outfit công sở</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Lưu ý vận hành</h4>
+        <ul>
+          <li>Thay ảnh demo bằng ảnh thật của sản phẩm.</li>
+          <li>Dán link affiliate vào nút mua ngay.</li>
+          <li>Thêm bài review mới mỗi tuần để tăng SEO.</li>
+          <li>Ưu tiên shop uy tín và giá hợp với chất lượng.</li>
+        </ul>
       </div>
     </div>
   </footer>
 
-  <button id="backToTop" class="back-to-top" aria-label="Lên đầu trang">↑</button>
+  <script>
+    const products = [
+      {
+        id: 1,
+        title: "Áo thun nam cotton basic dễ mặc",
+        category: "Áo nam",
+        price: 169000,
+        oldPrice: 229000,
+        rating: 4.8,
+        sold: 4200,
+        source: "Shopee",
+        shop: "Urban Men Store",
+        score: 92,
+        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80",
+        affiliate: "#",
+        reason: "Mặc hằng ngày, giá mềm, dễ phối"
+      },
+      {
+        id: 2,
+        title: "Áo polo nam lịch sự, mặc đi làm nhẹ nhàng",
+        category: "Áo nam",
+        price: 259000,
+        oldPrice: 319000,
+        rating: 4.7,
+        sold: 1900,
+        source: "Lazada",
+        shop: "Gentle Wear",
+        score: 89,
+        image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=900&q=80",
+        affiliate: "#",
+        reason: "Đẹp cho công sở, không quá già"
+      },
+      {
+        id: 3,
+        title: "Quần jean nam form suông dễ phối áo thun",
+        category: "Quần",
+        price: 329000,
+        oldPrice: 399000,
+        rating: 4.6,
+        sold: 1380,
+        source: "Shopee",
+        shop: "Denim House",
+        score: 87,
+        image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=900&q=80",
+        affiliate: "#",
+        reason: "Dễ mặc, giữ form ổn"
+      },
+      {
+        id: 4,
+        title: "Giày sneaker trắng tối giản dễ phối đồ",
+        category: "Giày",
+        price: 389000,
+        oldPrice: 489000,
+        rating: 4.8,
+        sold: 5100,
+        source: "Tiki",
+        shop: "White Step",
+        score: 94,
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80",
+        affiliate: "#",
+        reason: "Đi học, đi làm, đi chơi đều hợp"
+      },
+      {
+        id: 5,
+        title: "Váy nữ dáng dài thanh lịch đi tiệc nhẹ",
+        category: "Váy nữ",
+        price: 359000,
+        oldPrice: 459000,
+        rating: 4.7,
+        sold: 970,
+        source: "Lazada",
+        shop: "Luna Dress",
+        score: 90,
+        image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80",
+        affiliate: "#",
+        reason: "Nữ tính, giá vừa tầm"
+      },
+      {
+        id: 6,
+        title: "Áo sơ mi nữ công sở form gọn sang",
+        category: "Váy nữ",
+        price: 219000,
+        oldPrice: 289000,
+        rating: 4.5,
+        sold: 1250,
+        source: "Shopee",
+        shop: "Office Muse",
+        score: 84,
+        image: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80",
+        affiliate: "#",
+        reason: "Dễ phối quần tây hoặc chân váy"
+      },
+      {
+        id: 7,
+        title: "Áo thun nam form rộng streetwear trẻ trung",
+        category: "Áo nam",
+        price: 189000,
+        oldPrice: 249000,
+        rating: 4.9,
+        sold: 6400,
+        source: "Shopee",
+        shop: "Street Local",
+        score: 96,
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80",
+        affiliate: "#",
+        reason: "Đang dễ bán, hợp nhiều tệp khách"
+      },
+      {
+        id: 8,
+        title: "Chân váy midi thanh lịch phối đi làm",
+        category: "Váy nữ",
+        price: 279000,
+        oldPrice: 339000,
+        rating: 4.6,
+        sold: 860,
+        source: "Tiki",
+        shop: "Noble Woman",
+        score: 85,
+        image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80",
+        affiliate: "#",
+        reason: "Hợp công sở, nhìn gọn người"
+      },
+      {
+        id: 9,
+        title: "Quần kaki nam màu be mặc đi làm đẹp",
+        category: "Quần",
+        price: 299000,
+        oldPrice: 369000,
+        rating: 4.7,
+        sold: 1480,
+        source: "Lazada",
+        shop: "Daily Gent",
+        score: 88,
+        image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=900&q=80",
+        affiliate: "#",
+        reason: "Màu dễ phối, mặc lâu không chán"
+      },
+      {
+        id: 10,
+        title: "Giày lười nam nhẹ chân, đi làm tiện",
+        category: "Giày",
+        price: 429000,
+        oldPrice: 549000,
+        rating: 4.5,
+        sold: 720,
+        source: "Tiki",
+        shop: "Classic Step",
+        score: 83,
+        image: "https://images.unsplash.com/photo-1548883354-94bcfe321c59?auto=format&fit=crop&w=900&q=80",
+        affiliate: "#",
+        reason: "Phù hợp người thích gọn, ít cầu kỳ"
+      },
+      {
+        id: 11,
+        title: "Váy suông nữ tối giản, đi cafe rất đẹp",
+        category: "Váy nữ",
+        price: 199000,
+        oldPrice: 259000,
+        rating: 4.6,
+        sold: 1730,
+        source: "Shopee",
+        shop: "Mây Clothing",
+        score: 86,
+        image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80",
+        affiliate: "#",
+        reason: "Dễ mặc, chụp ảnh đẹp"
+      },
+      {
+        id: 12,
+        title: "Giày thể thao trắng đế êm, đi hằng ngày",
+        category: "Giày",
+        price: 469000,
+        oldPrice: 599000,
+        rating: 4.8,
+        sold: 2980,
+        source: "Lazada",
+        shop: "Move Free",
+        score: 91,
+        image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=900&q=80",
+        affiliate: "#",
+        reason: "Đi lâu ít mỏi, dễ bán"
+      }
+    ];
 
-  <script src="data/products.js"></script>
-  <script src="script.js"></script>
+    const reviews = [
+      {
+        title: "Top áo thun nam đẹp dưới 200k đáng mua",
+        desc: "Ưu tiên các mẫu dễ mặc, giá mềm, hợp số đông và không quá kén dáng người.",
+        points: [
+          "Nên chọn cotton hoặc cotton pha để mặc thoáng hơn",
+          "Ưu tiên form hơi rộng để dễ phối quần jean, quần short",
+          "Nút mua nên dẫn thẳng sang shop có đánh giá ổn"
+        ]
+      },
+      {
+        title: "Giày trắng dễ phối đồ cho nam và nữ",
+        desc: "Đây là nhóm sản phẩm rất dễ bán vì phù hợp nhiều lứa tuổi, nhiều phong cách và không lỗi mốt nhanh.",
+        points: [
+          "Chọn thiết kế tối giản để dùng được lâu",
+          "Ưu tiên đế êm, ít nặng chân",
+          "Nên có ảnh mang thực tế để tăng chuyển đổi"
+        ]
+      },
+      {
+        title: "Váy đi tiệc giá hợp lý nhưng vẫn sang",
+        desc: "Không cần quá đắt, quan trọng là form đẹp, chất vải lên dáng ổn và màu dễ mặc.",
+        points: [
+          "Màu đen, beige, đỏ rượu dễ lên hình",
+          "Nên viết rõ chiều cao cân nặng mẫu mặc demo",
+          "Kèm 1-2 lựa chọn thay thế trong cùng tầm giá"
+        ]
+      },
+      {
+        title: "Outfit công sở nữ thanh lịch, dễ áp dụng",
+        desc: "Tập trung các món có thể phối nhiều lần như sơ mi, chân váy midi, giày basic.",
+        points: [
+          "Chọn item không quá nhiều chi tiết",
+          "Tone màu dễ phối giúp người mua quyết nhanh",
+          "Bài review nên có combo 2-3 món đi kèm"
+        ]
+      },
+      {
+        title: "Quần kaki nam mặc đi làm mà vẫn trẻ",
+        desc: "Đây là nhóm sản phẩm chuyển đổi tốt nếu bạn chọn được màu dễ mặc và form không quá ôm.",
+        points: [
+          "Be, đen, xám là 3 màu an toàn",
+          "Nên nhấn mạnh độ dễ phối với áo polo, sơ mi",
+          "Có thể ghép thành bài ‘3 outfit đi làm dưới 1 triệu’"
+        ]
+      },
+      {
+        title: "Cách chọn đồ thời trang online ít sai nhất",
+        desc: "Bài evergreen để giữ traffic lâu dài: hướng dẫn xem shop, form, chất vải, đánh giá thật và link mua.",
+        points: [
+          "Nhìn số đơn bán và ảnh feedback thật",
+          "Ưu tiên shop phản hồi tốt, đổi trả rõ ràng",
+          "Không chọn theo giá rẻ nhất mà chọn giá hợp lý nhất"
+        ]
+      }
+    ];
+
+    const productGrid = document.getElementById('productGrid');
+    const reviewGrid = document.getElementById('reviewGrid');
+    const searchInput = document.getElementById('searchInput');
+    const sourceFilter = document.getElementById('sourceFilter');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const priceFilter = document.getElementById('priceFilter');
+    const sortFilter = document.getElementById('sortFilter');
+    const emptyState = document.getElementById('emptyState');
+    const statProducts = document.getElementById('statProducts');
+
+    statProducts.textContent = String(products.length);
+
+    function formatPrice(value) {
+      return value.toLocaleString('vi-VN') + 'đ';
+    }
+
+    function productCard(item) {
+      return `
+        <article class="product-card">
+          <div class="product-media">
+            <img src="${item.image}" alt="${item.title}" loading="lazy" />
+            <div class="source-pill">${item.source}</div>
+            <div class="score-pill">AI ${item.score}/100</div>
+          </div>
+          <div class="product-body">
+            <h3 class="product-title">${item.title}</h3>
+            <div class="meta-row">
+              <span class="tag">${item.category}</span>
+              <span class="tag">${item.reason}</span>
+            </div>
+            <div class="price-row">
+              <div>
+                <div class="price">${formatPrice(item.price)}</div>
+                <div class="old-price">${formatPrice(item.oldPrice)}</div>
+              </div>
+              <div class="shop">${item.shop}</div>
+            </div>
+            <div class="rating-row">
+              <div class="stars">★ ${item.rating}</div>
+              <div class="shop">${item.sold.toLocaleString('vi-VN')} lượt mua</div>
+            </div>
+            <div class="card-actions">
+              <a class="btn-buy btn" href="${item.affiliate}" target="_blank" rel="nofollow sponsored noopener">Mua ngay trên ${item.source}</a>
+              <button class="btn-outline btn" onclick="alert('Hãy thay link, ảnh, giá và shop demo bằng dữ liệu thật của bạn.')">Xem ghi chú</button>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function reviewCard(item) {
+      return `
+        <article class="review-card">
+          <h3>${item.title}</h3>
+          <p>${item.desc}</p>
+          <div class="review-points">
+            ${item.points.map(point => `<div>• <span>${point}</span></div>`).join('')}
+          </div>
+          <a href="#products" class="btn btn-secondary">Xem sản phẩm liên quan</a>
+        </article>
+      `;
+    }
+
+    function applyFilters() {
+      const q = searchInput.value.trim().toLowerCase();
+      const source = sourceFilter.value;
+      const category = categoryFilter.value;
+      const price = priceFilter.value;
+      const sort = sortFilter.value;
+
+      let filtered = products.filter(item => {
+        const matchQ = !q || [item.title, item.category, item.source, item.shop, item.reason].join(' ').toLowerCase().includes(q);
+        const matchSource = source === 'all' || item.source === source;
+        const matchCategory = category === 'all' || item.category === category;
+
+        let matchPrice = true;
+        if (price === 'under200') matchPrice = item.price < 200000;
+        if (price === '200to400') matchPrice = item.price >= 200000 && item.price <= 400000;
+        if (price === 'over400') matchPrice = item.price > 400000;
+
+        return matchQ && matchSource && matchCategory && matchPrice;
+      });
+
+      if (sort === 'score') filtered.sort((a, b) => b.score - a.score);
+      if (sort === 'priceAsc') filtered.sort((a, b) => a.price - b.price);
+      if (sort === 'priceDesc') filtered.sort((a, b) => b.price - a.price);
+      if (sort === 'rating') filtered.sort((a, b) => b.rating - a.rating);
+
+      productGrid.innerHTML = filtered.map(productCard).join('');
+      emptyState.style.display = filtered.length ? 'none' : 'block';
+    }
+
+    function renderReviews() {
+      reviewGrid.innerHTML = reviews.map(reviewCard).join('');
+    }
+
+    [searchInput, sourceFilter, categoryFilter, priceFilter, sortFilter].forEach(el => {
+      el.addEventListener('input', applyFilters);
+      el.addEventListener('change', applyFilters);
+    });
+
+    applyFilters();
+    renderReviews();
+  </script>
 </body>
 </html>
