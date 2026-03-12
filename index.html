@@ -3,110 +3,285 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BuyFashionAI</title>
-  <meta name="description" content="BuyFashionAI - Website gợi ý sản phẩm thời trang đáng mua, dễ tìm kiếm, dễ chọn mua." />
+  <title>BuyFashionAI | Gợi ý thời trang thông minh</title>
+  <meta
+    name="description"
+    content="BuyFashionAI - Website gợi ý thời trang nam với giao diện hiện đại, tìm kiếm nhanh, lọc giá, sắp xếp sản phẩm và nút mua ngay."
+  />
+  <meta name="theme-color" content="#111111" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <div class="top-badge">BUYFASHIONAI</div>
-      <h1>Mua thời trang dễ hơn với BuyFashionAI</h1>
-      <p class="hero-text">
-        Gợi ý sản phẩm đẹp, giá hợp lý, dễ so sánh và bấm sang nơi bán ngay.
-      </p>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <span class="brand-badge">B</span>
+        <div class="brand-text">
+          <strong>BuyFashionAI</strong>
+          <small>Thời trang nam chọn lọc</small>
+        </div>
+      </a>
 
-      <div class="search-box">
-        <input id="searchInput" type="text" placeholder="Tìm áo thun, oversize, basic, thể thao..." />
-      </div>
+      <nav class="desktop-nav">
+        <a href="#products-section">Sản phẩm</a>
+        <a href="#reviews-section">Review</a>
+        <a href="#why-section">Lý do chọn</a>
+      </nav>
 
-      <div class="filter-row">
-        <button class="filter-btn active" data-filter="all">Tất cả</button>
-        <button class="filter-btn" data-filter="basic">Basic</button>
-        <button class="filter-btn" data-filter="oversize">Oversize</button>
-        <button class="filter-btn" data-filter="sport">Thể thao</button>
-      </div>
+      <button id="mobileMenuBtn" class="menu-btn" aria-label="Mở menu">
+        ☰
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="#products-section">Sản phẩm</a>
+      <a href="#reviews-section">Review</a>
+      <a href="#why-section">Lý do chọn</a>
     </div>
   </header>
 
-  <main class="container">
-    <section class="info-grid">
-      <div class="info-card">
-        <h3>Dễ tìm</h3>
-        <p>Tìm sản phẩm theo tên, phong cách hoặc shop.</p>
-      </div>
-      <div class="info-card">
-        <h3>Dễ chọn</h3>
-        <p>Hiển thị giá, shop, tag sản phẩm rõ ràng.</p>
-      </div>
-      <div class="info-card">
-        <h3>Dễ mua</h3>
-        <p>Bấm một chạm để chuyển sang trang bán hàng.</p>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="tag">Demo hoàn chỉnh cho repo GitHub</span>
+          <h1>Giao diện đẹp, đầy đủ chức năng, sẵn sàng nâng cấp thành web affiliate</h1>
+          <p>
+            Tìm kiếm nhanh, lọc theo danh mục, lọc giá, sắp xếp thông minh, xem review nổi bật
+            và bấm <strong>Mua ngay</strong> để chuyển sang sàn thương mại điện tử.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#products-section" class="btn btn-primary">Xem sản phẩm</a>
+            <a href="#reviews-section" class="btn btn-secondary">Đọc review</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-card">
+              <strong id="heroProductCount">0+</strong>
+              <span>Sản phẩm</span>
+            </div>
+            <div class="stat-card">
+              <strong>4.8/5</strong>
+              <span>Đánh giá mẫu</span>
+            </div>
+            <div class="stat-card">
+              <strong>24/7</strong>
+              <span>Tra cứu nhanh</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="glass-card">
+            <div class="glass-top">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+
+            <div class="glass-body">
+              <div class="mini-product">
+                <div class="mini-image mini1"></div>
+                <div>
+                  <strong>Áo thun premium</strong>
+                  <p>Phối đơn giản, dễ mặc, đẹp hằng ngày</p>
+                </div>
+              </div>
+              <div class="mini-product">
+                <div class="mini-image mini2"></div>
+                <div>
+                  <strong>Sơ mi công sở</strong>
+                  <p>Gọn gàng, lịch sự, phù hợp đi làm</p>
+                </div>
+              </div>
+              <div class="mini-product">
+                <div class="mini-image mini3"></div>
+                <div>
+                  <strong>Polo nam basic</strong>
+                  <p>Thanh lịch hơn áo thun, vẫn rất thoải mái</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section-head">
-      <div>
-        <h2>Sản phẩm nổi bật</h2>
-        <p>Danh sách gợi ý cho nam giới, dễ mặc và dễ mua.</p>
-      </div>
-      <div class="count-box">
-        <span id="resultCount">0</span> sản phẩm
-      </div>
-    </section>
-
-    <section id="products" class="products"></section>
-
-    <section class="review-section">
-      <h2>Bài viết gợi ý</h2>
-      <div class="review-grid">
-        <article class="review-card">
-          <h3>Áo thun nam dưới 200k nên chọn thế nào?</h3>
-          <p>Ưu tiên cotton mềm, form dễ mặc và shop có ảnh thật rõ ràng.</p>
-        </article>
-        <article class="review-card">
-          <h3>Oversize mặc sao cho đẹp?</h3>
-          <p>Nên chọn vai rơi vừa phải, không quá dài, dễ phối với quần jean hoặc kaki.</p>
-        </article>
-        <article class="review-card">
-          <h3>Áo thun thể thao cần chú ý gì?</h3>
-          <p>Ưu tiên chất vải thoáng, co giãn tốt và phù hợp hoạt động nhiều.</p>
-        </article>
+    <section class="trust-bar">
+      <div class="container trust-grid">
+        <div>Chọn lọc dễ mua</div>
+        <div>Giao diện tối giản</div>
+        <div>Lọc giá nhanh</div>
+        <div>Sẵn sàng gắn affiliate</div>
       </div>
     </section>
 
-    <section class="faq-section">
-      <h2>Câu hỏi thường gặp</h2>
-      <div class="faq-item">
-        <h3>Website này bán hàng trực tiếp không?</h3>
-        <p>Không. BuyFashionAI là website gợi ý và điều hướng sang nơi bán.</p>
+    <section id="products-section" class="products-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Sản phẩm nổi bật</span>
+            <h2>Khám phá sản phẩm phù hợp</h2>
+            <p>Lọc nhanh theo nhu cầu, mức giá và kiểu dáng.</p>
+          </div>
+          <div class="result-box">
+            <strong id="resultCount">0</strong>
+            <span>sản phẩm hiển thị</span>
+          </div>
+        </div>
+
+        <div class="filter-panel">
+          <div class="filter-grid">
+            <div class="filter-item filter-search">
+              <label for="searchInput">Tìm kiếm</label>
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="Ví dụ: áo thun, polo, sơ mi..."
+              />
+            </div>
+
+            <div class="filter-item">
+              <label for="categoryFilter">Danh mục</label>
+              <select id="categoryFilter">
+                <option value="all">Tất cả</option>
+                <option value="Áo thun">Áo thun</option>
+                <option value="Áo polo">Áo polo</option>
+                <option value="Áo sơ mi">Áo sơ mi</option>
+                <option value="Hoodie">Hoodie</option>
+                <option value="Áo khoác">Áo khoác</option>
+              </select>
+            </div>
+
+            <div class="filter-item">
+              <label for="priceFilter">Mức giá</label>
+              <select id="priceFilter">
+                <option value="all">Tất cả</option>
+                <option value="150000">Dưới 150.000đ</option>
+                <option value="200000">Dưới 200.000đ</option>
+                <option value="300000">Dưới 300.000đ</option>
+                <option value="500000">Dưới 500.000đ</option>
+              </select>
+            </div>
+
+            <div class="filter-item">
+              <label for="sortFilter">Sắp xếp</label>
+              <select id="sortFilter">
+                <option value="featured">Nổi bật</option>
+                <option value="price-asc">Giá tăng dần</option>
+                <option value="price-desc">Giá giảm dần</option>
+                <option value="rating-desc">Đánh giá cao</option>
+                <option value="discount-desc">Giảm giá mạnh</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-actions">
+            <button id="clearFiltersBtn" class="btn btn-light">Xóa bộ lọc</button>
+          </div>
+        </div>
+
+        <div id="activeTags" class="active-tags"></div>
+
+        <div id="productsGrid" class="products-grid"></div>
+
+        <div id="emptyState" class="empty-state hidden">
+          <h3>Không tìm thấy sản phẩm phù hợp</h3>
+          <p>Hãy thử từ khóa khác hoặc xóa bớt bộ lọc.</p>
+        </div>
       </div>
-      <div class="faq-item">
-        <h3>Tôi có thể tìm kiếm sản phẩm không?</h3>
-        <p>Có. Bạn có thể tìm theo tên sản phẩm, phong cách hoặc shop.</p>
+    </section>
+
+    <section id="reviews-section" class="reviews-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Review hữu ích</span>
+            <h2>Gợi ý theo nhu cầu thực tế</h2>
+            <p>Phần này giúp web của bạn nhìn chuyên nghiệp hơn và có định hướng nội dung rõ ràng.</p>
+          </div>
+        </div>
+
+        <div class="review-grid">
+          <article class="review-card">
+            <span class="review-badge">Dưới 200k</span>
+            <h3>Áo thun nam đẹp giá dễ mua</h3>
+            <p>
+              Nếu ưu tiên mặc hằng ngày, nên chọn áo cotton basic, form vừa và màu trung tính.
+              Đây là nhóm dễ bán, dễ phối đồ và phù hợp số đông khách hàng.
+            </p>
+          </article>
+
+          <article class="review-card">
+            <span class="review-badge">Công sở</span>
+            <h3>Sơ mi nam lịch sự, nhìn gọn gàng</h3>
+            <p>
+              Với nhu cầu đi làm, nên ưu tiên chất vải ít nhăn, form đứng và màu trắng, xanh nhạt
+              hoặc be. Đây là nhóm sản phẩm có tỷ lệ chuyển đổi khá tốt.
+            </p>
+          </article>
+
+          <article class="review-card">
+            <span class="review-badge">Dễ phối</span>
+            <h3>Polo nam cho người thích đơn giản</h3>
+            <p>
+              Polo là lựa chọn cân bằng giữa lịch sự và thoải mái. Dễ mặc hơn sơ mi, đẹp hơn áo
+              thun cơ bản trong nhiều hoàn cảnh.
+            </p>
+          </article>
+        </div>
       </div>
-      <div class="faq-item">
-        <h3>Website có thể nâng cấp thêm không?</h3>
-        <p>Có. Có thể thêm 50–500 sản phẩm, bài review, lọc giá và link affiliate.</p>
+    </section>
+
+    <section id="why-section" class="why-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Tại sao web này ổn</span>
+            <h2>Phù hợp để làm nền tảng phát triển tiếp</h2>
+          </div>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <h3>Thiết kế sạch</h3>
+            <p>Dễ nhìn, dễ sửa, dễ thêm sản phẩm và phù hợp làm giao diện bán hàng cơ bản.</p>
+          </div>
+          <div class="why-card">
+            <h3>Code đơn giản</h3>
+            <p>Chỉ dùng HTML, CSS, JavaScript thuần nên upload GitHub rất dễ.</p>
+          </div>
+          <div class="why-card">
+            <h3>Dễ mở rộng</h3>
+            <p>Sau này có thể thêm affiliate, JSON thật, API, tìm kiếm nâng cao, trang chi tiết.</p>
+          </div>
+          <div class="why-card">
+            <h3>Deploy nhanh</h3>
+            <p>Dùng tốt với GitHub Pages hoặc Netlify mà không cần cài đặt phức tạp.</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="site-footer">
     <div class="container footer-inner">
       <div>
         <strong>BuyFashionAI</strong>
-        <p>Website thời trang AI - gợi ý sản phẩm đáng mua.</p>
+        <p>Demo giao diện hoàn chỉnh cho repo GitHub của bạn.</p>
       </div>
       <div class="footer-links">
-        <span>Áo thun</span>
-        <span>Review</span>
-        <span>So sánh</span>
-        <span>Gợi ý mua</span>
+        <a href="#products-section">Sản phẩm</a>
+        <a href="#reviews-section">Review</a>
+        <a href="#top">Lên đầu trang</a>
       </div>
     </div>
   </footer>
 
+  <button id="backToTop" class="back-to-top" aria-label="Lên đầu trang">↑</button>
+
+  <script src="data/products.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
