@@ -1,1 +1,29 @@
-
+ [
+  {
+    "title": "Áo thun nam cotton form rộng",
+    "price": 189000,
+    "image": "https://via.placeholder.com/400x400?text=Ao+thun",
+    "shop": "Fashion Store",
+    "rating": 4.8,
+    "affiliate_url": "https://s.shopee.vn/8V491WRRLx",
+    "review": "Áo cotton form rộng, dễ mặc hằng ngày, mức giá khá an toàn."
+  },
+  {
+    "title": "Áo polo nam basic",
+    "price": 219000,
+    "image": "https://via.placeholder.com/400x400?text=Ao+polo",
+    "shop": "Men Style Shop",
+    "rating": 4.7,
+    "affiliate_url": "https://s.shopee.vn/8V491WRRLx",
+    "review": "Áo polo basic, phù hợp đi làm và đi chơi, dễ phối đồ."
+  },
+  {
+    "title": "Sơ mi nam công sở",
+    "price": 259000,
+    "image": "https://via.placeholder.com/400x400?text=So+mi",
+    "shop": "Office Wear",
+    "rating": 4.6,
+    "affiliate_url": "https://s.shopee.vn/8V491WRRLx",
+    "review": "Sơ mi công sở gọn gàng, phù hợp môi trường văn phòng."
+  }
+]
