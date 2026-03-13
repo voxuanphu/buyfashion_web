@@ -102,13 +102,13 @@
   shop: "Shopee",
   badge: "Áo Thun Nhà Ken.2018",
   link: "https://s.shopee.vn/2g6Njrr7UH",
-  image: "assets/products/ao-polo-1.jpg"
+  image: "assets/products/ao-thun-7.jpg"
 },
 
 {
   id: 8,
   name: "Mozees Áo Thun Cổ Tròn Nam Form Regular 100% Cotton, Định Lượng 230gsm, Chất Mềm Mịn, Thoáng Mát",
-  category: "Áo sơ mi",
+  category: "Ao thun",
   price: 259000,
   oldPrice: 329000,
   rating: 4.9,
@@ -117,7 +117,7 @@
   shop: "Shopee",
   badge: "Mozees",
   link: "https://s.shopee.vn/8ph15TI6Mz",
-  image: "assets/products/ao-somi-1.jpg"
+  image: "assets/products/ao-thun-8.jpg"
 },
 
 {
