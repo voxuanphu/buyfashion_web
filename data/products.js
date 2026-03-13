@@ -55,6 +55,8 @@ const products = [
     link: "https://tiki.vn/",
     image: "assets/products/ao-thun-4.jpg"
   },
+ image: "assets/products/ao-thun-4.jpg"
+},
 {
   id: 5,
   name: "Áo thun nam cotton form rộng",
