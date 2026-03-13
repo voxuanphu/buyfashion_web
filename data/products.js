@@ -92,31 +92,31 @@
 
 {
   id: 7,
-  name: "Áo polo nam thể thao co giãn",
+  name: "Áo Thun Nam Cotton ĐỎ mặc tết Cổ Tròn PHIÊN BẢN IN NỔI NORMAN NHÀ KEN PREMIUM",
   category: "Áo polo",
   price: 189000,
   oldPrice: 249000,
   rating: 4.8,
   sold: "2k",
   discount: 24,
-  shop: "Lazada",
-  badge: "Phổ biến",
-  link: "https://lazada.vn/",
+  shop: "Shopee",
+  badge: "Áo Thun Nhà Ken.2018",
+  link: "https://s.shopee.vn/2g6Njrr7UH",
   image: "assets/products/ao-polo-1.jpg"
 },
 
 {
   id: 8,
-  name: "Áo sơ mi nam công sở slim fit",
+  name: "Mozees Áo Thun Cổ Tròn Nam Form Regular 100% Cotton, Định Lượng 230gsm, Chất Mềm Mịn, Thoáng Mát",
   category: "Áo sơ mi",
   price: 259000,
   oldPrice: 329000,
   rating: 4.9,
   sold: "980",
   discount: 21,
-  shop: "Tiki",
-  badge: "Công sở",
-  link: "https://tiki.vn/",
+  shop: "Shopee",
+  badge: "Mozees",
+  link: "https://s.shopee.vn/8ph15TI6Mz",
   image: "assets/products/ao-somi-1.jpg"
 },
 
