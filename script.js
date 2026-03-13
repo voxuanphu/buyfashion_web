@@ -77,14 +77,21 @@ function createProductCard(product) {
           <span>Đã bán ${product.sold}</span>
         </div>
 
-        <div class="product-actions">
-          <a class="action-btn action-view" href="${product.link}" target="_blank" rel="noopener noreferrer">
-            Xem shop
-          </a>
-          <a class="action-btn action-buy" href="${product.link}" target="_blank" rel="noopener noreferrer">
-            Mua ngay
-          </a>
-        </div>
+<div class="product-actions">
+  <a class="action-btn action-view"
+     href="${product.merchantUrl || product.link}"
+     target="_blank"
+     rel="noopener">
+     Xem shop
+  </a>
+
+  <a class="action-btn action-buy"
+     href="${product.affiliateUrl || product.link}"
+     target="_blank"
+     rel="sponsored nofollow noopener">
+     Mua ngay
+  </a>
+</div>
       </div>
     </article>
   `;
