@@ -73,7 +73,8 @@
     badge: "Đáng mua",
     link: "https://s.shopee.vn/1BHZtCJzJX",
     image: "assets/products/ao-thun-5.jpg"
-  }
+  },
+  
 {
   id: 6,
   name: "Áo thun nam basic form fit",
