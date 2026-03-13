@@ -1,74 +1,36 @@
  const productsGrid = document.getElementById("productsGrid");
 const searchInput = document.getElementById("searchInput");
 const categoryFilter = document.getElementById("categoryFilter");
-const priceFilter = document.getElementById("priceFilter");
 const sortFilter = document.getElementById("sortFilter");
 const resultCount = document.getElementById("resultCount");
 const heroProductCount = document.getElementById("heroProductCount");
-const activeTags = document.getElementById("activeTags");
-const clearFiltersBtn = document.getElementById("clearFiltersBtn");
 const emptyState = document.getElementById("emptyState");
-const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
-const backToTop = document.getElementById("backToTop");
 
-heroProductCount.textContent = `${products.length}+`;
+heroProductCount.textContent = products.length;
 
 function formatPrice(value) {
   return value.toLocaleString("vi-VN") + "đ";
 }
 
-function renderActiveTags(searchValue, categoryValue, priceValue, sortValue) {
-  const tags = [];
-
-  if (searchValue.trim()) {
-    tags.push(`Từ khóa: ${searchValue.trim()}`);
-  }
-
-  if (categoryValue !== "all") {
-    tags.push(`Danh mục: ${categoryValue}`);
-  }
-
-  if (priceValue !== "all") {
-    tags.push(`Giá: dưới ${Number(priceValue).toLocaleString("vi-VN")}đ`);
-  }
-
-  if (sortValue !== "featured") {
-    const sortLabelMap = {
-      "price-asc": "Giá tăng dần",
-      "price-desc": "Giá giảm dần",
-      "rating-desc": "Đánh giá cao",
-      "discount-desc": "Giảm giá mạnh"
-    };
-    tags.push(`Sắp xếp: ${sortLabelMap[sortValue] || sortValue}`);
-  }
-
-  activeTags.innerHTML = tags.map(tag => `<span class="active-tag">${tag}</span>`).join("");
-}
-
 function getFilteredProducts() {
-  const searchValue = searchInput.value.toLowerCase().trim();
-  const categoryValue = categoryFilter.value;
-  const priceValue = priceFilter.value;
-  const sortValue = sortFilter.value;
+  const keyword = searchInput.value.toLowerCase().trim();
+  const category = categoryFilter.value;
+  const sort = sortFilter.value;
 
-  let filtered = [...products].filter(product => {
-    const matchSearch =
-      product.name.toLowerCase().includes(searchValue) ||
-      product.category.toLowerCase().includes(searchValue) ||
-      product.shop.toLowerCase().includes(searchValue) ||
-      product.badge.toLowerCase().includes(searchValue);
+  let filtered = [...products].filter((product) => {
+    const matchKeyword =
+      product.name.toLowerCase().includes(keyword) ||
+      product.category.toLowerCase().includes(keyword) ||
+      product.shop.toLowerCase().includes(keyword) ||
+      product.badge.toLowerCase().includes(keyword);
 
     const matchCategory =
-      categoryValue === "all" || product.category === categoryValue;
+      category === "all" || product.category === category;
 
-    const matchPrice =
-      priceValue === "all" || product.price <= Number(priceValue);
-
-    return matchSearch && matchCategory && matchPrice;
+    return matchKeyword && matchCategory;
   });
 
-  switch (sortValue) {
+  switch (sort) {
     case "price-asc":
       filtered.sort((a, b) => a.price - b.price);
       break;
@@ -78,18 +40,11 @@ function getFilteredProducts() {
     case "rating-desc":
       filtered.sort((a, b) => b.rating - a.rating);
       break;
-    case "discount-desc":
-      filtered.sort((a, b) => b.discount - a.discount);
-      break;
     default:
-      filtered.sort((a, b) => {
-        if (b.rating !== a.rating) return b.rating - a.rating;
-        return b.discount - a.discount;
-      });
+      filtered.sort((a, b) => a.id - b.id);
       break;
   }
 
-  renderActiveTags(searchValue, categoryValue, priceValue, sortValue);
   return filtered;
 }
 
@@ -113,14 +68,12 @@ function createProductCard(product) {
         </div>
 
         <div class="price-row">
-          <div class="price-block">
-            <span class="price-current">${formatPrice(product.price)}</span>
-            <span class="price-old">${formatPrice(product.oldPrice)}</span>
-          </div>
+          <span class="price-current">${formatPrice(product.price)}</span>
+          <span class="price-old">${formatPrice(product.oldPrice)}</span>
         </div>
 
         <div class="rating-row">
-          <span>⭐ ${product.rating} / 5</span>
+          <span>⭐ ${product.rating}/5</span>
           <span>Đã bán ${product.sold}</span>
         </div>
 
@@ -139,47 +92,20 @@ function createProductCard(product) {
 
 function renderProducts() {
   const filtered = getFilteredProducts();
-
   resultCount.textContent = filtered.length;
-  productsGrid.innerHTML = filtered.map(createProductCard).join("");
 
   if (filtered.length === 0) {
+    productsGrid.innerHTML = "";
     emptyState.classList.remove("hidden");
-    productsGrid.classList.add("hidden");
-  } else {
-    emptyState.classList.add("hidden");
-    productsGrid.classList.remove("hidden");
+    return;
   }
-}
 
-function resetFilters() {
-  searchInput.value = "";
-  categoryFilter.value = "all";
-  priceFilter.value = "all";
-  sortFilter.value = "featured";
-  renderProducts();
+  emptyState.classList.add("hidden");
+  productsGrid.innerHTML = filtered.map(createProductCard).join("");
 }
 
 searchInput.addEventListener("input", renderProducts);
 categoryFilter.addEventListener("change", renderProducts);
-priceFilter.addEventListener("change", renderProducts);
 sortFilter.addEventListener("change", renderProducts);
-clearFiltersBtn.addEventListener("click", resetFilters);
-
-mobileMenuBtn.addEventListener("click", () => {
-  mobileMenu.classList.toggle("open");
-});
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 400) {
-    backToTop.classList.add("show");
-  } else {
-    backToTop.classList.remove("show");
-  }
-});
-
-backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
 
 renderProducts();
