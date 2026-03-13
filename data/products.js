@@ -178,5 +178,224 @@
     link: "https://s.shopee.vn/6AgFwsqIQv",
     image: "assets/products/ao-thun-10.jpg",
     description: "Polo basic cao cấp, hợp môi trường công sở và đi chơi lịch sự."
-  }
+  },
+  {
+id:11,
+name:"Áo thun nam cotton basic form rộng",
+price:179000,
+image:"https://cf.shopee.vn/file/0a1a2b3c4d",
+rating:4.8,
+sold:2100,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/11"
+},
+
+{
+id:12,
+name:"Áo thun nam cổ tròn cotton mềm",
+price:159000,
+image:"https://cf.shopee.vn/file/1b2c3d4e5f",
+rating:4.7,
+sold:1500,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/12"
+},
+
+{
+id:13,
+name:"Áo thun nam basic phong cách Hàn",
+price:189000,
+image:"https://cf.shopee.vn/file/2c3d4e5f6g",
+rating:4.8,
+sold:1800,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/13"
+},
+
+{
+id:14,
+name:"Áo thun nam oversize streetwear",
+price:199000,
+image:"https://cf.shopee.vn/file/3d4e5f6g7h",
+rating:4.7,
+sold:1300,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/14"
+},
+
+{
+id:15,
+name:"Áo thun nam cotton form rộng Hàn Quốc",
+price:169000,
+image:"https://cf.shopee.vn/file/4e5f6g7h8i",
+rating:4.8,
+sold:2200,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/15"
+},
+
+{
+id:16,
+name:"Áo thun nam basic logo nhỏ",
+price:149000,
+image:"https://cf.shopee.vn/file/5f6g7h8i9j",
+rating:4.7,
+sold:1100,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/16"
+},
+
+{
+id:17,
+name:"Áo thun nam cotton cao cấp mềm mịn",
+price:229000,
+image:"https://cf.shopee.vn/file/6g7h8i9j0k",
+rating:4.8,
+sold:900,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/17"
+},
+
+{
+id:18,
+name:"Áo thun nam slim fit basic",
+price:189000,
+image:"https://cf.shopee.vn/file/7h8i9j0k1l",
+rating:4.7,
+sold:1250,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/18"
+},
+
+{
+id:19,
+name:"Áo thun nam cotton trắng basic",
+price:139000,
+image:"https://cf.shopee.vn/file/8i9j0k1l2m",
+rating:4.8,
+sold:2700,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/19"
+},
+
+{
+id:20,
+name:"Áo thun nam form rộng cổ tròn",
+price:179000,
+image:"https://cf.shopee.vn/file/9j0k1l2m3n",
+rating:4.8,
+sold:1600,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/20"
+},
+
+{
+id:21,
+name:"Áo thun nam basic cotton dày",
+price:199000,
+image:"https://cf.shopee.vn/file/1a2b3c4d5e",
+rating:4.7,
+sold:1400,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/21"
+},
+
+{
+id:22,
+name:"Áo thun nam streetwear in chữ",
+price:189000,
+image:"https://cf.shopee.vn/file/2b3c4d5e6f",
+rating:4.8,
+sold:1200,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/22"
+},
+
+{
+id:23,
+name:"Áo thun nam cotton basic đen",
+price:159000,
+image:"https://cf.shopee.vn/file/3c4d5e6f7g",
+rating:4.8,
+sold:2300,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/23"
+},
+
+{
+id:24,
+name:"Áo thun nam Hàn Quốc oversize",
+price:209000,
+image:"https://cf.shopee.vn/file/4d5e6f7g8h",
+rating:4.7,
+sold:1000,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/24"
+},
+
+{
+id:25,
+name:"Áo thun nam cotton basic xám",
+price:169000,
+image:"https://cf.shopee.vn/file/5e6f7g8h9i",
+rating:4.8,
+sold:1700,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/25"
+},
+
+{
+id:26,
+name:"Áo thun nam logo nhỏ phong cách minimal",
+price:179000,
+image:"https://cf.shopee.vn/file/6f7g8h9i0j",
+rating:4.7,
+sold:950,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/26"
+},
+
+{
+id:27,
+name:"Áo thun nam basic cotton co giãn",
+price:159000,
+image:"https://cf.shopee.vn/file/7g8h9i0j1k",
+rating:4.8,
+sold:2100,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/27"
+},
+
+{
+id:28,
+name:"Áo thun nam oversize unisex",
+price:199000,
+image:"https://cf.shopee.vn/file/8h9i0j1k2l",
+rating:4.7,
+sold:1350,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/28"
+},
+
+{
+id:29,
+name:"Áo thun nam cotton mềm cao cấp",
+price:229000,
+image:"https://cf.shopee.vn/file/9i0j1k2l3m",
+rating:4.8,
+sold:880,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/29"
+},
+
+{
+id:30,
+name:"Áo thun nam basic phối màu",
+price:189000,
+image:"https://cf.shopee.vn/file/0j1k2l3m4n",
+rating:4.7,
+sold:1120,
+merchantUrl:"https://shopee.vn",
+affiliateUrl:"https://shopee.vn/product/30"
+}
 ];
