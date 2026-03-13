@@ -54,5 +54,18 @@ const products = [
     badge: "Công sở",
     link: "https://tiki.vn/",
     image: "assets/products/ao-thun-4.jpg"
-  }
-];
+  },
+{
+  id: 5,
+  name: "Áo thun nam cotton form rộng",
+  category: "Áo thun",
+  price: 139000,
+  oldPrice: 189000,
+  rating: 4.9,
+  sold: "3k",
+  discount: 26,
+  shop: "Shopee Mall",
+  badge: "Đáng mua",
+  link: "https://s.shopee.vn/1BHZtCJzJX",
+  image: "assets/products/ao-thun-5.jpg"
+}
