@@ -84,9 +84,9 @@
   rating: 4.7,
   sold: "1.5k",
   discount: 25,
-  shop: "Shopee",
+  shop: "Wassup.",
   badge: "Bán chạy",
-  link: "https://shopee.vn/",
+  link: "https://s.shopee.vn/8KkkTogzDx",
   image: "assets/products/ao-thun-6.jpg"
 },
 
