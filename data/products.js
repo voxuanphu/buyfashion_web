@@ -1,7 +1,7 @@
  const products = [
-
   {
     id: 1,
+    slug: "ao-thun-nam-basic-cotton",
     name: "Áo thun nam basic cotton",
     category: "Áo thun",
     price: 129000,
@@ -11,12 +11,15 @@
     discount: 24,
     shop: "Shopee Mall",
     badge: "Bán chạy",
+    merchantUrl: "https://s.shopee.vn/9zswiBvchR",
+    affiliateUrl: "https://s.shopee.vn/9zswiBvchR",
     link: "https://s.shopee.vn/9zswiBvchR",
-    image: "assets/products/ao-thun-1.jpg"
+    image: "assets/products/ao-thun-1.jpg",
+    description: "Áo thun basic dễ mặc hằng ngày, phù hợp phối đồ đơn giản."
   },
-
   {
     id: 2,
+    slug: "ao-thun-nam-form-rong-toi-gian",
     name: "Áo thun nam form rộng tối giản",
     category: "Áo thun",
     price: 159000,
@@ -26,12 +29,15 @@
     discount: 20,
     shop: "Shopee",
     badge: "Phổ biến",
+    merchantUrl: "https://shopee.vn/",
+    affiliateUrl: "https://shopee.vn/",
     link: "https://shopee.vn/",
-    image: "assets/products/ao-thun-2.jpg"
+    image: "assets/products/ao-thun-2.jpg",
+    description: "Form rộng dễ mặc, hợp phong cách trẻ và streetwear cơ bản."
   },
-
   {
     id: 3,
+    slug: "ao-polo-nam-phoi-co-thanh-lich",
     name: "Áo polo nam phối cổ thanh lịch",
     category: "Áo polo",
     price: 219000,
@@ -41,12 +47,15 @@
     discount: 24,
     shop: "Lazada",
     badge: "Thanh lịch",
+    merchantUrl: "https://www.lazada.vn/",
+    affiliateUrl: "https://www.lazada.vn/",
     link: "https://www.lazada.vn/",
-    image: "assets/products/ao-thun-3.jpg"
+    image: "assets/products/ao-thun-3.jpg",
+    description: "Mẫu polo dễ mặc, hợp đi làm, đi chơi và phối đồ gọn gàng."
   },
-
   {
     id: 4,
+    slug: "ao-so-mi-nam-trang-cong-so",
     name: "Áo sơ mi nam trắng công sở",
     category: "Áo sơ mi",
     price: 249000,
@@ -56,12 +65,15 @@
     discount: 24,
     shop: "Tiki",
     badge: "Công sở",
+    merchantUrl: "https://tiki.vn/",
+    affiliateUrl: "https://tiki.vn/",
     link: "https://tiki.vn/",
-    image: "assets/products/ao-thun-4.jpg"
+    image: "assets/products/ao-thun-4.jpg",
+    description: "Sơ mi trắng cơ bản, dễ phối quần tây hoặc jean tối màu."
   },
-
   {
     id: 5,
+    slug: "ao-thun-nam-cotton-form-rong",
     name: "Áo thun nam cotton form rộng",
     category: "Áo thun",
     price: 139000,
@@ -71,83 +83,100 @@
     discount: 26,
     shop: "Shopee Mall",
     badge: "Đáng mua",
+    merchantUrl: "https://s.shopee.vn/1BHZtCJzJX",
+    affiliateUrl: "https://s.shopee.vn/1BHZtCJzJX",
     link: "https://s.shopee.vn/1BHZtCJzJX",
-    image: "assets/products/ao-thun-5.jpg"
+    image: "assets/products/ao-thun-5.jpg",
+    description: "Cotton thoáng, dễ mặc hằng ngày, phù hợp người thích form rộng."
   },
-  
-{
-  id: 6,
-  name: "Áo thun nam basic form fit",
-  category: "Áo thun",
-  price: 119000,
-  oldPrice: 159000,
-  rating: 4.7,
-  sold: "1.5k",
-  discount: 25,
-  shop: "Wassup.",
-  badge: "Bán chạy",
-  link: "https://s.shopee.vn/8KkkTogzDx",
-  image: "assets/products/ao-thun-6.jpg"
-},
-
-{
-  id: 7,
-  name: "Áo Thun Nam Cotton ĐỎ mặc tết Cổ Tròn PHIÊN BẢN IN NỔI NORMAN NHÀ KEN PREMIUM",
-  category: "Áo polo",
-  price: 189000,
-  oldPrice: 249000,
-  rating: 4.8,
-  sold: "2k",
-  discount: 24,
-  shop: "Shopee",
-  badge: "Áo Thun Nhà Ken.2018",
-  link: "https://s.shopee.vn/2g6Njrr7UH",
-  image: "assets/products/ao-thun-7.jpg"
-},
-
-{
-  id: 8,
-  name: "Mozees Áo Thun Cổ Tròn Nam Form Regular 100% Cotton, Định Lượng 230gsm, Chất Mềm Mịn, Thoáng Mát",
-  category: "Ao thun",
-  price: 259000,
-  oldPrice: 329000,
-  rating: 4.9,
-  sold: "980",
-  discount: 21,
-  shop: "Shopee",
-  badge: "Mozees",
-  link: "https://s.shopee.vn/8ph15TI6Mz",
-  image: "assets/products/ao-thun-8.jpg"
-},
-
-{
-  id: 9,
-  name: "Áo thun nam Đỏ mận bigsize unisex mùa hè fashion thư in hình cotton 100% Beeyanbuy local brand",
-  category: "Áo thun",
-  price: 169000,
-  oldPrice: 219000,
-  rating: 4.6,
-  sold: "1.2k",
-  discount: 23,
-  shop: "BEEYANBUY",
-  badge: "Hot trend",
-  link: "https://s.shopee.vn/1Lb0BasSwG",
-  image: "assets/products/ao-thun-9.jpg"
-},
-
-{
-  id: 10,
-  name: "Áo Polo Pique Basic Cotton 100% Ready To Wear Coolmate",
-  category: "Áo thun",
-  price: 199000,
-  oldPrice: 259000,
-  rating: 4.8,
-  sold: "1k",
-  discount: 23,
-  shop: "Shopee Mell",
-  badge: "Đáng mua",
-  link: "https://s.shopee.vn/6AgFwsqIQv",
-  image: "assets/products/ao-thun-10.jpg"
-},
- 
+  {
+    id: 6,
+    slug: "ao-thun-nam-basic-form-fit",
+    name: "Áo thun nam basic form fit",
+    category: "Áo thun",
+    price: 119000,
+    oldPrice: 159000,
+    rating: 4.7,
+    sold: "1.5k",
+    discount: 25,
+    shop: "Shopee",
+    badge: "Bán chạy",
+    merchantUrl: "https://shopee.vn/",
+    affiliateUrl: "https://shopee.vn/",
+    link: "https://shopee.vn/",
+    image: "assets/products/ao-thun-6.jpg",
+    description: "Form gọn, hợp mặc thường ngày và dễ phối với quần short, jean."
+  },
+  {
+    id: 7,
+    slug: "ao-thun-nha-ken-premium-do",
+    name: "Áo thun nam cotton đỏ premium Nhà Ken",
+    category: "Áo thun",
+    price: 189000,
+    oldPrice: 249000,
+    rating: 4.8,
+    sold: "2k",
+    discount: 24,
+    shop: "Shopee",
+    badge: "Nổi bật",
+    merchantUrl: "https://s.shopee.vn/2g6Njrr7UH",
+    affiliateUrl: "https://s.shopee.vn/2g6Njrr7UH",
+    link: "https://s.shopee.vn/2g6Njrr7UH",
+    image: "assets/products/ao-thun-7.jpg",
+    description: "Màu đỏ nổi bật, chất cotton dễ mặc, phù hợp outfit trẻ trung."
+  },
+  {
+    id: 8,
+    slug: "mozees-ao-thun-co-tron-form-regular",
+    name: "Mozees áo thun cổ tròn nam form regular",
+    category: "Áo thun",
+    price: 259000,
+    oldPrice: 329000,
+    rating: 4.9,
+    sold: "980",
+    discount: 21,
+    shop: "Shopee",
+    badge: "Mozees",
+    merchantUrl: "https://s.shopee.vn/8ph15TI6Mz",
+    affiliateUrl: "https://s.shopee.vn/8ph15TI6Mz",
+    link: "https://s.shopee.vn/8ph15TI6Mz",
+    image: "assets/products/ao-thun-8.jpg",
+    description: "Form regular, chất dày dặn hơn, hợp người thích áo đứng dáng."
+  },
+  {
+    id: 9,
+    slug: "ao-thun-nam-bigsize-unisex-mua-he",
+    name: "Áo thun nam bigsize unisex mùa hè",
+    category: "Áo thun",
+    price: 169000,
+    oldPrice: 219000,
+    rating: 4.6,
+    sold: "1.2k",
+    discount: 23,
+    shop: "BEEYANBUY",
+    badge: "Hot trend",
+    merchantUrl: "https://s.shopee.vn/1Lb0BasSwG",
+    affiliateUrl: "https://s.shopee.vn/1Lb0BasSwG",
+    link: "https://s.shopee.vn/1Lb0BasSwG",
+    image: "assets/products/ao-thun-9.jpg",
+    description: "Bigsize unisex dễ mặc mùa hè, hợp phong cách rộng rãi thoải mái."
+  },
+  {
+    id: 10,
+    slug: "ao-polo-pique-basic-cotton-coolmate",
+    name: "Áo polo pique basic cotton Ready To Wear",
+    category: "Áo polo",
+    price: 199000,
+    oldPrice: 259000,
+    rating: 4.8,
+    sold: "1k",
+    discount: 23,
+    shop: "Shopee Mall",
+    badge: "Đáng mua",
+    merchantUrl: "https://s.shopee.vn/6AgFwsqIQv",
+    affiliateUrl: "https://s.shopee.vn/6AgFwsqIQv",
+    link: "https://s.shopee.vn/6AgFwsqIQv",
+    image: "assets/products/ao-thun-10.jpg",
+    description: "Polo basic cao cấp, hợp môi trường công sở và đi chơi lịch sự."
+  }
 ];
