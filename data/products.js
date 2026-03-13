@@ -1,4 +1,5 @@
-const products = [
+ const products = [
+
   {
     id: 1,
     name: "Áo thun nam basic cotton",
@@ -13,6 +14,7 @@ const products = [
     link: "https://s.shopee.vn/9zswiBvchR",
     image: "assets/products/ao-thun-1.jpg"
   },
+
   {
     id: 2,
     name: "Áo thun nam form rộng tối giản",
@@ -27,6 +29,7 @@ const products = [
     link: "https://shopee.vn/",
     image: "assets/products/ao-thun-2.jpg"
   },
+
   {
     id: 3,
     name: "Áo polo nam phối cổ thanh lịch",
@@ -41,6 +44,7 @@ const products = [
     link: "https://www.lazada.vn/",
     image: "assets/products/ao-thun-3.jpg"
   },
+
   {
     id: 4,
     name: "Áo sơ mi nam trắng công sở",
@@ -55,20 +59,20 @@ const products = [
     link: "https://tiki.vn/",
     image: "assets/products/ao-thun-4.jpg"
   },
- image: "assets/products/ao-thun-4.jpg"
-},
-{
-  id: 5,
-  name: "Áo thun nam cotton form rộng",
-  category: "Áo thun",
-  price: 139000,
-  oldPrice: 189000,
-  rating: 4.9,
-  sold: "3k",
-  discount: 26,
-  shop: "Shopee Mall",
-  badge: "Đáng mua",
-  link: "https://s.shopee.vn/1BHZtCJzJX",
-  image: "assets/products/ao-thun-5.jpg"
-},
+
+  {
+    id: 5,
+    name: "Áo thun nam cotton form rộng",
+    category: "Áo thun",
+    price: 139000,
+    oldPrice: 189000,
+    rating: 4.9,
+    sold: "3k",
+    discount: 26,
+    shop: "Shopee Mall",
+    badge: "Đáng mua",
+    link: "https://s.shopee.vn/1BHZtCJzJX",
+    image: "assets/products/ao-thun-5.jpg"
+  }
+
 ];
