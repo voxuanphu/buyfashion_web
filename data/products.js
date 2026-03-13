@@ -71,3 +71,4 @@ const products = [
   link: "https://s.shopee.vn/1BHZtCJzJX",
   image: "assets/products/ao-thun-5.jpg"
 },
+];
