@@ -122,32 +122,32 @@
 
 {
   id: 9,
-  name: "Áo thun nam oversize streetwear",
+  name: "Áo thun nam Đỏ mận bigsize unisex mùa hè fashion thư in hình cotton 100% Beeyanbuy local brand",
   category: "Áo thun",
   price: 169000,
   oldPrice: 219000,
   rating: 4.6,
   sold: "1.2k",
   discount: 23,
-  shop: "Shopee",
+  shop: "BEEYANBUY",
   badge: "Hot trend",
-  link: "https://shopee.vn/",
-  image: "assets/products/ao-thun-7.jpg"
+  link: "https://s.shopee.vn/1Lb0BasSwG",
+  image: "assets/products/ao-thun-9.jpg"
 },
 
 {
   id: 10,
-  name: "Áo polo nam basic cao cấp",
-  category: "Áo polo",
+  name: "Áo Polo Pique Basic Cotton 100% Ready To Wear Coolmate",
+  category: "Áo thun",
   price: 199000,
   oldPrice: 259000,
   rating: 4.8,
   sold: "1k",
   discount: 23,
-  shop: "Lazada",
+  shop: "Shopee Mell",
   badge: "Đáng mua",
-  link: "https://lazada.vn/",
-  image: "assets/products/ao-polo-2.jpg"
+  link: "https://s.shopee.vn/6AgFwsqIQv",
+  image: "assets/products/ao-thun-10.jpg"
 },
  
 ];
